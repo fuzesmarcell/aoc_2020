@@ -7,24 +7,6 @@ import (
 	"strconv"
 )
 
-type FuncIntInt func([]int, int) int
-
-func memorized(fn FuncIntInt) FuncIntInt {
-	cache := make(map[int]int)
-
-	return func(arr []int, input int) int {
-		fmt.Println("Hello")
-		if val, found := cache[input]; found {
-			fmt.Println("Read from cache")
-			return val
-		}
-
-		result := fn(arr, input)
-		cache[input] = result
-		return result
-	}
-}
-
 func FindDeepArrangement(cache map[int]int, jolts []int, current_index int) int {
 
 	// NOTE(fuzes): Memoization!!!
